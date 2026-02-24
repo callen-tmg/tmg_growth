@@ -152,11 +152,41 @@
             }
         }
         
-        /* Process */
+        /* Process with Animated Background */
         .process {
             padding: 100px 0;
             background: #f9fafb;
             position: relative;
+            overflow: hidden;
+        }
+        .process::before,
+        .process::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.2;
+            z-index: 0;
+        }
+        .process::before {
+            background: #70cfc8;
+            top: -150px;
+            left: -100px;
+            animation: blobFloat 22s infinite ease-in-out;
+        }
+        .process::after {
+            background: #70cfc8;
+            bottom: -150px;
+            right: -100px;
+            animation: blobFloat 22s infinite ease-in-out;
+            animation-delay: -11s;
+            opacity: 0.15;
+        }
+        .process .container {
+            position: relative;
+            z-index: 1;
         }
         .section-title {
             font-size: 14px;
